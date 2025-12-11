@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact — Sketchoholic</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<!-- Correct Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-6iCqC3M+P5Knm9WxB8v2Gmr0F7u/3bXyXYr19KZ6N0R0RliF1F3R6BtgO+tUOQ/6rB8NL1K8P9S+e1hb6Ir18Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="style.css">
+<style>
+.contact-card {
+  background: var(--card);
+  padding: 30px 20px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  text-align: center;
+}
+.contact-card h2 { margin-bottom: 20px; font-family: Playfair Display; font-size:32px; }
+.contact-info { display:flex; flex-direction:column; gap:15px; font-size:16px; }
+.contact-info a { color:var(--dark); text-decoration:none; transition:0.3s; }
+.contact-info a:hover { color:var(--accent); }
+.social-icons { display:flex; gap:20px; justify-content:center; margin-top:20px; }
+.social-icons a { font-size:28px; color:var(--dark); transition:0.3s; }
+.social-icons a:hover { color:var(--accent); }
+</style>
+</head>
+<body>
+
+<header>
+<div class="container nav">
+  <div class="brand">
+    <a href="index.html" style="-webkit-tap-highlight-color: transparent;   tap-highlight-color: transparent; "><img src="images/logo.png" alt="sketchoholic logo" class="logo" /></a>
+    <div>
+      <h1>sketchoholic.in</h1>
+      <div class="muted" style="font-size:12px">Sketch Artist</div>
+    </div>
+  </div>
+  <button class="menu-toggle">☰</button>
+  <nav class="nav-links">
+    <a href="index.html"style="-webkit-tap-highlight-color: transparent;tap-highlight-color: transparent">Home</a>
+    <a href="gallery.html"style="-webkit-tap-highlight-color: transparent;tap-highlight-color: transparent">Gallery</a>
+    <a href="commission.html"style="-webkit-tap-highlight-color: transparent;tap-highlight-color: transparent">Commission</a>
+    <a href="testimonials.html"style="-webkit-tap-highlight-color: transparent;tap-highlight-color: transparent">Testimonials</a>
+    <a href="pricing.html"style="-webkit-tap-highlight-color: transparent;tap-highlight-color: transparent">Pricing</a>
+    <a href="contact.html"style="-webkit-tap-highlight-color: transparent;tap-highlight-color: transparent">Contact</a>
+  </nav>
+</div>
+</header>
+
+<main class="container" style="padding:60px 0">
+  <div class="contact-card">
+    <h2>Contact Me</h2>
+    <div class="contact-info">
+      
+      <a href="mailto: sumitsart620@gmail.com"style="-webkit-tap-highlight-color: transparent; tap-highlight-color: transparent;"><img src="images/gmail.png" alt="gmail" 
+         style="width:20px; height:20px; vertical-align:middle; margin-right:6px;">sumitsart620@gmail.com</a>
+      
+      <a href="tel:+916209981639"style="-webkit-tap-highlight-color: transparent; tap-highlight-color: transparent;"><img src="images/mobile.png" alt="mobile number" 
+         style="width:20px; height:20px; vertical-align:middle; margin-right:6px;"> +91-6209981639</a>
+      
+      <a href="https://wa.me/916209981639" target="_blank" 
+   style="-webkit-tap-highlight-color: transparent; tap-highlight-color: transparent;">
+    <img src="images/whatsapp.png" alt="WhatsApp" 
+         style="width:20px; height:20px; vertical-align:middle; margin-right:6px;">
+    
+    Chat on WhatsApp
+</a>
+      
+  
+
+      
+      
+    </div>
+    
+    <p style="margin-top:20px; color:var(--muted);">Or <a href="commission.html" class="commission-link" style="color: blue; font-weight: bolder">fill the commission form</a> to request a sketch.</p>
+    
+    <style>
+      .commission-link {
+  text-decoration: none;       /* Remove underline */
+  color: inherit;              /* Keep the surrounding text color */
+  cursor: pointer;             /* Show pointer on hover */
+  outline: none;               /* Remove focus outline */
+  -webkit-tap-highlight-color: transparent; /* Remove blue on mobile tap */
+}
+
+.commission-link:hover {
+  color: var(--accent);        /* Optional: change color on hover */
+}
+
+.commission-link:visited,
+.commission-link:active,
+.commission-link:focus {
+  text-decoration: none;       /* Ensure underline never appears */
+  color: inherit;              /* Keep text color consistent */
+}
+    </style>
+    
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+      <div>
+        <div class="brand-footer">
+           <a href="index.html" style="   -webkit-tap-highlight-color: transparent;   tap-highlight-color: transparent; "><img src="images/logo.png" alt="sketchoholic logo" class="logo" /></a>
+          <div>
+            <div style="font-weight:600">sketchoholic.in</div>
+            <div class="muted" style="font-size:13px">© 2025 Sketchoholic</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-links" style="display:flex; gap:24px; align-items:center;">
+  <!-- Contact -->
+  <a href="contact.html" class="footer-link" style="display:flex; align-items:center; gap:6px;">
+    <img src="images/contact-us.png" alt="Contact" width="24" height="24" />
+    Contact
+  </a>
+
+  <!-- Portfolio -->
+  <a href="gallery.html" class="footer-link" style="display:flex; align-items:center; gap:6px;">
+    <img src="images/paint.png" alt="Portfolio" width="24" height="24" />
+    Portfolio
+  </a>
+
+  <!-- Commission -->
+  <a href="commission.html" class="footer-link" style="display:flex; align-items:center; gap:6px;">
+    <img src="images/order-now.png" alt="Commission" width="24" height="24" />
+    Commission
+  </a>
+</div>
+
+<!-- CSS to remove blue highlight and underline -->
+<style>
+.footer-link {
+  text-decoration: none;    /* Remove underline */
+  color: inherit;           /* Keep your text color */
+  outline: none;            /* Remove focus outline */
+  -webkit-tap-highlight-color: transparent; /* Remove mobile blue tap */
+}
+
+.footer-link:focus,
+.footer-link:active,
+.footer-link:visited {
+  text-decoration: none;
+  outline: none;
+  color: inherit;           /* Keep original color on click */
+}
+
+/* Optional hover effect for icons */
+.footer-link img {
+  transition: transform 0.2s ease;
+}
+
+.footer-link:hover img {
+  transform: scale(1.1);
+}
+</style>
+    </div>
+
+<!-- Social Icons -->
+<div class="footer-icons" style="margin-top:18px; border-top:1px solid rgba(255,255,255,0.06); padding-top:18px; display:flex; align-items:center; gap:12px;">
+  follow sketchoholic on :
+  <!-- Instagram -->
+  <a href="https://instagram.com/yoursketchoholic2006" target="_blank" rel="noopener noreferrer">
+    <img src="images/social.png" alt="Instagram" width="24" height="24" />
+  </a>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/your-number" target="_blank" rel="noopener noreferrer">
+    <img src="images/whatsapp.png" alt="WhatsApp" width="24" height="24" />
+  </a>
+
+  <!-- Facebook -->
+  <a href="https://facebook.com/yoursketchoholic2006" target="_blank" rel="noopener noreferrer">
+    <img src="images/facebook.png" alt="Facebook" width="24" height="24" />
+  </a>
+</div>
+
+<!-- CSS -->
+<style>
+.footer-icons a {
+  outline: none;       /* Remove focus outline */
+  text-decoration: none; 
+  -webkit-tap-highlight-color: transparent; /* Remove blue highlight on mobile */
+}
+
+.footer-icons a:focus,
+.footer-icons a:active,
+.footer-icons a:visited {
+  outline: none;
+  text-decoration: none;
+}
+</style>
+  </div>
+</footer>
+
+<!-- CSS for removing click outline/underline -->
+<style>
+.footer-icons a {
+  outline: none;
+  text-decoration: none;
+}
+.footer-icons a:focus,
+.footer-icons a:active {
+  outline: none;
+  text-decoration: none;
+}
+</style>
+
+<script>
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+menuToggle && menuToggle.addEventListener('click', ()=>navLinks.classList.toggle('show'));
+</script>
+</body>
+</html>

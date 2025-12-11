@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Commission — Sketchoholic</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* Copy same CSS from index.html */
+</style>
+</head>
+<body>
+<header>
+<div class="container nav">
+  <div class="brand">
+      <a href="index.html" style="-webkit-tap-highlight-color: transparent;   tap-highlight-color: transparent; "><img src="images/logo.png" alt="sketchoholic logo" class="logo" /></a>
+    <div>
+      <h1>sketchoholic.in</h1>
+      <div class="muted" style="font-size:12px">Sketch Artist</div>
+    </div>
+  </div>
+  <button class="menu-toggle">☰</button>
+  <nav class="nav-links">
+    <a href="index.html"style="-webkit-tap-highlight-color: transparent;tap-highlight-color: transparent">Home</a>
+    <a href="gallery.html"style="-webkit-tap-highlight-color: transparent;tap-highlight-color: transparent">Gallery</a>
+    <a href="commission.html"style="-webkit-tap-highlight-color: transparent;tap-highlight-color: transparent">Commission</a>
+    <a href="testimonials.html"style="-webkit-tap-highlight-color: transparent;tap-highlight-color: transparent">Testimonials</a>
+    <a href="pricing.html"style="-webkit-tap-highlight-color: transparent;tap-highlight-color: transparent">Pricing</a>
+    <a href="contact.html"style="-webkit-tap-highlight-color: transparent;tap-highlight-color: transparent">Contact</a>
+  </nav>
+</div>
+</header>
+
+<main class="container" style="padding:40px 0">
+  <h2 style="text-align:center;margin-bottom:24px">Start Your Commission</h2>
+  <div style="max-width:600px;margin:0 auto;background:var(--card);padding:22px;border-radius:10px">
+    <form id="form" onsubmit="return handleSubmit(event)">
+      <div style="display:grid;gap:12px">
+        <input name="name" placeholder="Your name" required style="padding:12px;border-radius:8px;border:1px solid #e6e6e6;font-size:15px">
+        <input name="email" type="email" placeholder="Email" required style="padding:12px;border-radius:8px;border:1px solid #e6e6e6;font-size:15px">
+       <select name="style" style="padding:12px;border-radius:8px;border:1px solid #e6e6e6;font-size:15px" required>
+         <option value="" disabled selected>Medium</option>
+         <option value="pencil">Pencil</option>
+         <option value="charcoal">Charcoal</option>
+         <option value="color">Color</option>
+         <option value="digital">Digital</option>
+         <option value="digital">Any medium</option>
+       </select>
+       <select name="size" id="price-section"style="padding:12px;border-radius:8px;border:1px solid #e6e6e6;font-size:15px" required>
+         <option value="" disabled selected>Size</option>
+         <option value="a3">A3</option>
+         <option value="a4">A4</option>
+         <option value="a5">A5</option>
+         <option value="custom">Custom</option>
+       </select>
+       <select name="price" style="padding:12px;border-radius:8px;border:1px solid #e6e6e6;font-size:15px" required>
+          <option value="" disabled selected>Price</option>
+          <option value="pencil_100">Pencil — ₹1499</option>
+          <option value="charcoal_200">Charcoal — ₹1999</option>
+          <option value="color_300">Color — ₹2499</option>
+          <option value="digital_400">Digital — ₹2499</option>
+      </select>
+        <label style="font-size:13px;color:var(--muted)">Upload photo to reference (optional)</label>
+        <input name="photo" type="file" accept="image/*" style="padding:8px">
+        <textarea name="notes" placeholder="Additional details" rows="4" style="padding:12px;border-radius:8px;border:1px solid #e6e6e6;font-size:15px"></textarea>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button type="submit" class="btn btn-primary"style="-webkit-tap-highlight-color: transparent;tap-highlight-color: transparent;">Send Commission Request</button>
+          <button type="reset" class="btn" style="background:transparent;border:1px solid rgba(0,0,0,0.06);-webkit-tap-highlight-color: transparent;tap-highlight-color: transparent;">Reset</button>
+        </div>
+        <div id="form-msg" class="muted" style="font-size:14px"></div>
+      </div>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+      <div>
+        <div class="brand-footer">
+           <a href="index.html" style="   -webkit-tap-highlight-color: transparent;   tap-highlight-color: transparent; "><img src="images/logo.png" alt="sketchoholic logo" class="logo" /></a>
+          <div>
+            <div style="font-weight:600">sketchoholic.in</div>
+            <div class="muted" style="font-size:13px">© 2025 Sketchoholic</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-links" style="display:flex; gap:24px; align-items:center;">
+  <!-- Contact -->
+  <a href="contact.html" class="footer-link" style="display:flex; align-items:center; gap:6px;">
+    <img src="images/contact-us.png" alt="Contact" width="24" height="24" />
+    Contact
+  </a>
+
+  <!-- Portfolio -->
+  <a href="gallery.html" class="footer-link" style="display:flex; align-items:center; gap:6px;">
+    <img src="images/paint.png" alt="Portfolio" width="24" height="24" />
+    Portfolio
+  </a>
+
+  <!-- Commission -->
+  <a href="commission.html" class="footer-link" style="display:flex; align-items:center; gap:6px;">
+    <img src="images/order-now.png" alt="Commission" width="24" height="24" />
+    Commission
+  </a>
+</div>
+
+<!-- CSS to remove blue highlight and underline -->
+<style>
+.footer-link {
+  text-decoration: none;    /* Remove underline */
+  color: inherit;           /* Keep your text color */
+  outline: none;            /* Remove focus outline */
+  -webkit-tap-highlight-color: transparent; /* Remove mobile blue tap */
+}
+
+.footer-link:focus,
+.footer-link:active,
+.footer-link:visited {
+  text-decoration: none;
+  outline: none;
+  color: inherit;           /* Keep original color on click */
+}
+
+/* Optional hover effect for icons */
+.footer-link img {
+  transition: transform 0.2s ease;
+}
+
+.footer-link:hover img {
+  transform: scale(1.1);
+}
+</style>
+    </div>
+
+<!-- Social Icons -->
+<div class="footer-icons" style="margin-top:18px; border-top:1px solid rgba(255,255,255,0.06); padding-top:18px; display:flex; align-items:center; gap:12px;">
+  follow sketchoholic on :
+  <!-- Instagram -->
+  <a href="https://instagram.com/sketchoholic2006" target="_blank" rel="noopener noreferrer">
+    <img src="images/social.png" alt="Instagram" width="24" height="24" />
+  </a>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/your-number" target="_blank" rel="noopener noreferrer">
+    <img src="images/whatsapp.png" alt="WhatsApp" width="24" height="24" />
+  </a>
+
+  <!-- Facebook -->
+  <a href="https://facebook.com/sketchoholic2006" target="_blank" rel="noopener noreferrer">
+    <img src="images/facebook.png" alt="Facebook" width="24" height="24" />
+  </a>
+</div>
+
+<!-- CSS -->
+<style>
+.footer-icons a {
+  outline: none;       /* Remove focus outline */
+  text-decoration: none; 
+  -webkit-tap-highlight-color: transparent; /* Remove blue highlight on mobile */
+}
+
+.footer-icons a:focus,
+.footer-icons a:active,
+.footer-icons a:visited {
+  outline: none;
+  text-decoration: none;
+}
+</style>
+  </div>
+</footer>
+
+<!-- CSS for removing click outline/underline -->
+<style>
+.footer-icons a {
+  outline: none;
+  text-decoration: none;
+}
+.footer-icons a:focus,
+.footer-icons a:active {
+  outline: none;
+  text-decoration: none;
+}
+</style>
+
+<script>
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+menuToggle && menuToggle.addEventListener('click', ()=>navLinks.classList.toggle('show'));
+
+function handleSubmit(e){
+  e.preventDefault();
+  const msg = document.getElementById('form-msg');
+  msg.textContent = 'Sending...';
+  setTimeout(()=>{
+    msg.textContent = 'Thanks! Your request has been received. I will contact you within 48 hours.';
+    e.target.reset();
+  },800);
+  return false;
+}
+</script>
+</body>
+</html>

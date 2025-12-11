@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>sketchoholic.in — Your Photo, My Art</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* --------------------
+   VARIABLES & RESET
+-------------------- */
+:root{
+  --bg:#f7f5f3;
+  --text:#222;
+  --muted:#8b8b8b;
+  --accent:#c55b18;
+  --dark:#2e2928;
+  --card:#ffffff;
+  --radius:12px;
+  --max-width:1100px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.45;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+
+/* --------------------
+   HEADER
+-------------------- */
+header{background:transparent;padding:18px 0;position:relative}
+.nav{display:flex;align-items:center;justify-content:space-between;position:relative;flex-wrap:wrap}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-family:Playfair Display}
+.brand h1{margin:0;font-size:16px;font-family:Inter;font-weight:600}
+.menu-toggle{display:none;border:0;background:none;font-size:22px;cursor:pointer;z-index:10}
+
+/* --------------------
+   HERO
+-------------------- */
+.hero{padding:36px 0 24px;position:relative}
+.hero-inner{display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:center;position:relative}
+.hero-inner>div:first-child{display:flex;flex-direction:column;justify-content:center;max-width:420px;margin-left:auto}
+.eyebrow{letter-spacing:4px;color:var(--accent);font-size:12px}
+.hero h2{font-family:Playfair Display;font-size:38px;margin:6px 0;line-height:1.05;text-transform:none}
+.hero h2 .accent-italic{font-style:italic;color:var(--dark)}
+.hero p.lead{color:var(--muted);max-width:700px}
+.cta-row{display:flex;gap:14px;margin-top:18px}
+.btn{padding:14px 20px;border-radius:8px;border:0;cursor:pointer;font-weight:600}
+.btn-primary{background:var(--dark);color:#fff}
+.btn-ghost{background:transparent;border:1px solid rgba(0,0,0,0.08)}
+
+/* --------------------
+   FOOTER
+-------------------- */
+footer{background:var(--dark);color:#fff;padding:40px 0;margin-top:30px}
+.footer-inner{display:flex;gap:24px;flex-direction:column}
+.brand-footer{display:flex;gap:12px;align-items:center}
+.brand-footer .logo{width:40px;height:40px}
+.footer-links{display:flex;gap:36px;margin-top:8px}
+.footer-links a{color:rgba(255,255,255,0.85);text-decoration:none}
+
+/* --------------------
+   MEDIA QUERIES
+-------------------- */
+@media(min-width:700px){.hero-inner{grid-template-columns:1fr 420px}.hero h2{font-size:48px}}
+@media(max-width:640px){
+  .menu-toggle{display:block}
+  .nav-links{display:none;flex-direction:column;gap:8px;width:100%;margin-top:12px}
+  .nav-links.show{display:flex}
+  .nav-links a{padding:10px 0;text-decoration:none;color: var(--muted)}
+  .hero-inner{grid-template-columns:1fr;gap:24px;align-items:center}
+  .hero h2{font-size:30px}
+  .cta-row{flex-direction:column;width:90%;margin:0 auto}
+}
+.muted{color:var(--muted)}
+.center{display:flex;align-items:center;justify-content:center}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* --------------------
+   HERO IMAGE WRAPPER
+-------------------- */
+.hero-image-wrapper{display:flex;flex-direction:column;justify-content:center;align-items:center;padding-left:20px;padding-right:20px}
+.hero-image{width:100%;max-width:400px;height:auto;border-radius:12px;object-fit:contain;display:block;box-shadow:0 8px 20px rgba(0,0,0,0.1);margin-bottom:12px}
+.artist-name{font-weight:600;font-size:18px;color:var(--dark);text-align:center}
+@media(max-width:640px){
+  .hero-inner>div:first-child{padding-left:10px;padding-right:10px}
+  .hero-image-wrapper{padding-left:10px;padding-right:10px}
+  .hero-image{max-width:100%}
+}
+
+/* --------------------
+   HOMEPAGE SECTIONS
+-------------------- */
+.home-section{margin-top:60px;margin-bottom:60px}
+.section-title{font-family:'Playfair Display';font-size:30px;margin-bottom:8px;color:var(--dark)}
+.section-subtitle{color:var(--muted);margin-bottom:20px;max-width:600px}
+.gallery-grid{display:flex;gap:16px;flex-wrap:wrap}
+.gallery-grid img{width:32%;border-radius:12px;background:#eee;object-fit:cover}
+.commission-card{background:white;padding:18px;border-radius:12px;max-width:450px;border:1px solid #e8e8e8}
+.commission-card ul{margin:0;padding-left:20px;line-height:1.7}
+.section-btn{margin-top:20px;display:inline-block}
+@media(max-width:640px){.gallery-grid img{width:100%}}
+
+/* --------------------
+   TESTIMONIALS (CUSDIS)
+-------------------- */
+#cusdis_thread{max-height:600px;overflow-y:auto;padding:15px;border-radius:12px;background:#fff;border:1px solid #e8e8e8}
+#cusdis_thread iframe{min-height:700px!important;height:700px!important}
+
+/* --------------------
+   STAR RATING
+-------------------- */
+.homepage-rating{text-align:center;margin-top:60px;margin-bottom:60px}
+.star{font-size:40px;cursor:pointer;color:#ccc;transition:color 0.2s;user-select:none}
+.star:hover,.star:hover ~ .star{color:#c55b18}
+
+/* --------------------
+   PASSWORD OVERLAY
+-------------------- */
+#password-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);display:flex;justify-content:center;align-items:center;z-index:9999;color:#fff;opacity:0;visibility:hidden;transition:opacity 0.5s ease,visibility 0.5s ease;overflow:hidden}
+#password-overlay.show{opacity:1;visibility:visible}
+.overlay-content{text-align:center;max-width:320px;width:90%;padding:30px 20px;background:rgba(255,255,255,0.05);border-radius:12px;box-shadow:0 8px 25px rgba(0,0,0,0.5)}
+#password-overlay h2{margin-bottom:20px;font-size:22px}
+#password-overlay input{width:100%;padding:12px;font-size:16px;border-radius:6px;border:none;margin-bottom:12px}
+#password-overlay button{width:100%;padding:12px;font-size:16px;border-radius:6px;border:none;cursor:pointer;background-color:#c55b18;color:#fff}
+#password-error{color:#ff6666;margin-top:10px;font-size:14px}
+@media(max-width:480px){
+  .overlay-content{padding:25px 15px}
+  #password-overlay h2{font-size:20px}
+  #password-overlay input,#password-overlay button{font-size:15px;padding:10px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- =====================
+      PASSWORD OVERLAY
+===================== -->
+<div id="password-overlay">
+  <div class="overlay-content">
+    <h2>Enter Password to Access</h2>
+    <input type="password" id="access-password" placeholder="Enter password">
+    <button id="submit-password">Enter</button>
+    <p id="password-error"></p>
+  </div>
+</div>
+
+<!-- =====================
+      HEADER
+===================== -->
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <a href="index.html"><img src="images/logo.png" alt="sketchoholic logo" class="logo"></a>
+      <div>
+        <h1>sketchoholic.in</h1>
+        <div class="muted" style="font-size:12px">Sketch Artist</div>
+      </div>
+    </div>
+    <button class="menu-toggle" aria-expanded="false">☰</button>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="commission.html">Commission</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- =====================
+      HERO
+===================== -->
+<main>
+<section class="hero container">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">SKETCH ARTIST</div>
+      <h2>Art That Captures<br><span class="accent-italic">your photo — my art</span></h2>
+      <p class="lead">Transforming moments into timeless sketches and portraits. Each piece is crafted with passion and precision.</p>
+      <div class="cta-row">
+        <a href="commission.html" class="btn btn-primary">Commission a Piece →</a>
+        <a href="gallery.html" class="btn btn-ghost">View Gallery</a>
+      </div>
+    </div>
+    <div class="hero-image-wrapper">
+      <img src="images/artist.png" alt="Artist" class="hero-image">
+      <div class="artist-name">Sumit Kumar ( Artist )</div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================
+      GALLERY PREVIEW
+===================== -->
+<section class="home-section container gallery-preview">
+  <h2 class="section-title">Latest Artwork</h2>
+  <p class="section-subtitle">A glimpse of my recent sketches.</p>
+  <div class="gallery-grid">
+    <img src="images/sample1.jpg" alt="Sketch sample 1">
+    <img src="images/sample2.jpg" alt="Sketch sample 2">
+    <img src="images/sample3.jpg" alt="Sketch sample 3">
+  </div>
+  <a href="gallery.html" class="btn btn-primary section-btn">See More →</a>
+</section>
+
+<!-- =====================
+      COMMISSION PREVIEW
+===================== -->
+<section class="home-section container commission-preview">
+  <h2 class="section-title">Commission a Portrait</h2>
+  <p class="section-subtitle">Turn your favorite photo into a handmade sketch.</p>
+  <div class="commission-card">
+    <ul>
+      <li>Sketches starting from ₹799</li>
+      <li>Free digital copy with every order</li>
+      <li>Fast delivery</li>
+      <li>Available in A3 / A4 / Custom sizes</li>
+    </ul>
+  </div>
+  <a href="commission.html" class="btn btn-primary section-btn">Order Now →</a>
+</section>
+
+<!-- =====================
+      TESTIMONIALS PREVIEW (CUSDIS)
+===================== -->
+<section class="home-section container testimonials-preview">
+  <h2 class="section-title">What Clients Say</h2>
+  <div id="cusdis_thread"
+       data-host="https://cusdis.com"
+       data-app-id="deb5df5e-3cf9-4023-918e-7261c7edd839"
+       data-page-id="testimonials"
+       data-page-url="https://yoursite.com"
+       data-page-title="Testimonials">
+  </div>
+  <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+  <a href="testimonials.html" class="btn btn-primary section-btn" style="margin-top:20px;">Read More Reviews →</a>
+</section>
+
+<!-- =====================
+      STAR RATING
+===================== -->
+<section class="home-section container homepage-rating">
+  <h2 class="section-title">Rate Our Work</h2>
+  <p class="section-subtitle">Your rating helps us improve!</p>
+  <div id="average-rating" style="margin-bottom:12px; font-weight:500; color:var(--dark);">Average Rating: —</div>
+  <div class="star-rating" style="font-size:0; display:flex; justify-content:center; gap:8px;">
+    <span class="star" data-value="5">★</span>
+    <span class="star" data-value="4">★</span>
+    <span class="star" data-value="3">★</span>
+    <span class="star" data-value="2">★</span>
+    <span class="star" data-value="1">★</span>
+  </div>
+  <div id="rating-output" style="margin-top:12px;color:var(--dark);font-weight:500;"></div>
+</section>
+
+<!-- =====================
+      FOOTER
+===================== -->
+<footer>
+  <div class="container footer-inner">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+      <div>
+        <div class="brand-footer">
+          <a href="index.html"><img src="images/logo.png" alt="sketchoholic logo" class="logo"></a>
+          <div>
+            <div style="font-weight:600">sketchoholic.in</div>
+            <div class="muted" style="font-size:13px">© 2025 Sketchoholic</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-links" style="display:flex; gap:24px; align-items:center;">
+        <a href="contact.html" class="footer-link"><img src="images/contact-us.png" width="24"> Contact</a>
+        <a href="gallery.html" class="footer-link"><img src="images/paint.png" width="24"> Portfolio</a>
+        <a href="commission.html" class="footer-link"><img src="images/order-now.png" width="24"> Commission</a>
+      </div>
+    </div>
+    <div class="footer-icons" style="margin-top:18px; border-top:1px solid rgba(255,255,255,0.06); padding-top:18px; display:flex; gap:12px; align-items:center;">
+      follow sketchoholic on :
+      <a href="https://instagram.com/sketchoholic2006" target="_blank"><img src="images/social.png" width="24"></a>
+      <a href="https://wa.me/your-number" target="_blank"><img src="images/whatsapp.png" width="24"></a>
+      <a href="https://facebook.com/sketchoholic2006" target="_blank"><img src="images/facebook.png" width="24"></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// MENU TOGGLE
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+menuToggle && menuToggle.addEventListener('click', ()=>{ navLinks.classList.toggle('show'); });
+
+// =====================
+// STAR RATING LOGIC
+// =====================
+const stars = document.querySelectorAll('.star');
+const output = document.getElementById('rating-output');
+const averageDisplay = document.getElementById('average-rating');
+let ratings = JSON.parse(localStorage.getItem('ratings')) || [];
+function updateAverage(){
+  if(ratings.length === 0){averageDisplay.textContent='Average Rating: —';return;}
+  const sum=ratings.reduce((a,b)=>a+b,0);
+  const avg=(sum/ratings.length).toFixed(1);
+  averageDisplay.textContent=`Average Rating: ${avg} ★ (${ratings.length} ratings)`;
+}
+updateAverage();
+stars.forEach(star=>{
+  star.addEventListener('click', ()=>{
+    const rating=parseInt(star.getAttribute('data-value'));
+    output.textContent=`You rated ${rating} star${rating>1?'s':''}!`;
+    stars.forEach(s=>s.style.color='#ccc');
+    for(let i=0;i<rating;i++){stars[i].style.color='#c55b18';}
+    ratings.push(rating);
+    localStorage.setItem('ratings',JSON.stringify(ratings));
+    updateAverage();
+  });
+});
+
+// =====================
+// PASSWORD OVERLAY LOGIC
+// =====================
+const overlay=document.getElementById('password-overlay');
+const input=document.getElementById('access-password');
+const submit=document.getElementById('submit-password');
+const errorMsg=document.getElementById('password-error');
+const PASSWORD='1234'; // <-- Change this
+
+window.addEventListener('load', ()=>{
+  if(sessionStorage.getItem('access_granted')!=='true'){
+    overlay.classList.add('show');
+    document.body.style.overflow='hidden'; // prevent scrolling
+  }
+});
+
+function checkPassword(){
+  if(input.value===PASSWORD){
+    overlay.classList.remove('show');
+    overlay.classList.add('hide');
+    sessionStorage.setItem('access_granted','true');
+    document.body.style.overflow='auto';
+  } else {
+    errorMsg.textContent='Incorrect password. Try again.';
+    input
